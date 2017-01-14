@@ -4,8 +4,8 @@ $link2 = " | <b>Section Listing</b>";
 require "settings.php";
 
 // Global MySQL connection
-$linkID = @mysql_connect("$server", "$username", "$password");
-mysql_select_db("$database", $linkID);
+//$linkID = @mysql_connect("$server", "$username", "$password");
+//mysql_select_db("$database", $linkID);
 
 
 if ($_GET['action'] == "list") {
