@@ -5,8 +5,8 @@ $link2 = " | <b>Section Listing</b>";
 require "settings.php";
 include "roman.php";
 // Global MySQL connection
-$linkID = @mysql_connect("$server", "$username", "$password");
-mysql_select_db("$database", $linkID);
+//$linkID = @mysql_connect("$server", "$username", "$password");
+//mysql_select_db("$database", $linkID);
 
 if ($_GET['action'] == "listbooks") {
 	$result = $core->new_mysql("SELECT * FROM `sections` WHERE `secid` = '$_GET[sid]'");
