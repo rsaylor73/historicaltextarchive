@@ -138,7 +138,7 @@ if ($_GET['action'] == "listbooks") {
 
 	$resultID = $core->new_mysql("SELECT * FROM `books` WHERE `sid` = '$_GET[sid]' ORDER BY `bid` DESC");
 	while ($row = $resultID->fetch_assoc()) {
-		print "<li><a href=\"books.php?action=nextpre&bid=$row[bid]\">$row[title]</a> ($row[pageviews] clicks)</li>\n";
+		print "<li><a href=\"books.php?action=nextpre&bid=$row[bid]\">$row[title]</a> ($row[pageviews] views)</li>\n";
 	}
 }
 
