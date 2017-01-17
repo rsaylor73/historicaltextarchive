@@ -1,4 +1,5 @@
 <?php
+session_start();
 $link1 = " | <b><a href=\"books.php\">E-books</a></b>";
 $link2 = " | <b>Section Listing</b>";
 
@@ -148,6 +149,15 @@ if ($_GET['action'] == "nextpre") {
 	if ($_GET['pre'] == "") {
 		$_GET['pre'] = "1";
 	}
+
+	// inc page view
+	if ($_SESSION['lock_bid'] != $_GET['bid']) {
+		$sql = "UPDATE `books` SET `pageviews` = `pageviews` + 1 WHERE `bid` = '$_GET[bid]'";
+		$result = $core->new_mysql($sql);
+	}
+
+	$_SESSION['lock_bid'] = $_GET['bid'];
+	// end
 
 	$resultID = $core->new_mysql("SELECT * FROM `books_pre` WHERE `bid` = '$_GET[bid]' AND `orderby` = '$_GET[pre]'");
 	while ($row = $resultID->fetch_assoc()) {
