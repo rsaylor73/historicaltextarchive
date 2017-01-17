@@ -25,6 +25,7 @@ if ($_GET['action'] == "links") {
 	}
 }
 if ($_GET['action'] == "links2") {
+	
 	$links2 = " | Loading link...";
 }
 include "header.inc.php";
@@ -124,6 +125,19 @@ if ($_GET['action'] == "links") {
 	}
 }
 if ($_GET['action'] == "links2") {
+   if (!is_numeric($_GET['lid'])) {
+	die;
+   }
+
+   $sql = "SELECT `lid` FROM `links_links` WHERE `lid` = '$_GET[lid]'";
+   $result = $core->new_mysql($sql);
+   while ($row = $result->fetch_assoc()) {
+      $f = "1";
+   }
+   if ($f != "1") {
+      die;
+   }
+
    $resultID = $core->new_mysql("SELECT * FROM `links_links` WHERE `lid` = '$_GET[lid]'");
    while ($row = $resultID->fetch_assoc()) {
 		$url = $row['url'];

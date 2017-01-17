@@ -24,6 +24,10 @@ if ($_GET['action'] == "list") {
 	*/
 }
 if ($_GET['action'] == "read") {
+   if (!is_numeric($_GET['artid'])) {
+        die;
+   }
+
 	$sql = "SELECT * FROM `seccont` WHERE `artid` = '$_GET[artid]'";
 	$result = $core->new_mysql($sql);
 	while ($row = $result->fetch_assoc()) {
