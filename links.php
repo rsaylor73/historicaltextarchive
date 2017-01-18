@@ -1,5 +1,19 @@
 <?php
-require "settings.php";
+switch ($_GET) {
+
+	case "links2":
+	if (!is_numeric($_GET['lid'])) {
+		die;
+	}
+	require "settings.php";
+	break;
+
+	default:
+	require "settings.php";
+	break;
+}
+
+
 // Global MySQL connection
 //$linkID = @mysql_connect("$server", "$username", "$password");
 //mysql_select_db("$database", $linkID);
